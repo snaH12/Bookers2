@@ -1,9 +1,10 @@
-<% @books.each do |book| %>
+<h1>Users</h1>
+<% @users.each do |user| %>
 <div>
-  <%= link_to book_path(book.id) do %>
+  <%= link_to user_path(user.id) do %>
   <% end %>
-  <p>image：<%= image_tag book.user.get_profile_image(100,100) %></p>
-  <p>name:<%= book.user.name %></p>
-  <p><%= link_to "show", edit_book_path(@books) %></p>
+  <p>image：<%= image_tag user.get_profile_image(100,100) %></p>
+  <p>name:<%= user.name %></p>
+  <p><%= link_to "show", user_path(user.id) %></p>
 </div>
 <% end %>
