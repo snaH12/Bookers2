@@ -3,8 +3,7 @@
   <%= link_to book_path(book.id) do %>
   <% end %>
   <p>image：<%= image_tag book.user.get_profile_image(100,100) %></p>
-  <p>title：<%= book.title %></p>
-  <p>opinion：<%= book.body %></p>
-  <p>neme：<%= book.user.name %></p>
+  <p>name:<%= book.user.name %></p>
+  <p><%= link_to "show", edit_book_path(@books) %></p>
 </div>
 <% end %>
