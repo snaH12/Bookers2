@@ -1,28 +1,31 @@
-<div><%= flash[:notice] %>
-<h1>Editing Book</h1>
-<% if @book.errors.any? %>
-  <%= @book.errors.count %>error prohibited this obj from being saved:
-  <ul>
-    <% @book.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
-<% end %>
-
-
-<%= form_with model: @book, url: book_path(@book.id), method: :patch do |f| %>
-
-  <h4>Title</h4>
-  <%= f.text_field :title %>
-  
-  <h4>Opinion</h4>
-  <%= f.text_area :body %>
-
-  
-  <%= f.submit 'update' %>
-  <%= link_to "show", book_path(@book.id) %>
-  <%= link_to "back", books_path(@book) %>
-  
-<% end %>
-
+<p id="notice"><%= flash[:notice]%></p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <h1>Editing Book</h1>
+      <%= form_with model: @Book do |f| %>
+        <% if @Book.errors.any? %>
+        <%= @Book.errors.count %>error prohibited this obj from being saved:
+        <ul>
+          <% @Book.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+          <% end %>
+        </ul>
+        <% end %>
+        <div class="form-group">
+          <label>Title</label>
+          <%= f.text_field :title %>
+          </div>
+        <div class="form-group">
+          <label>Opinion</label>
+          <%= f.text_area :body %>
+          </div>
+        <div class="form-group">
+          <%= f.submit 'update' %>
+        </div>
+      <% end %>
+      <div><%= link_to "show", book_path(@Book.id) %></div>
+      <div><%= link_to "back", books_path %></div>
+    </div>
+  </div>
 </div>

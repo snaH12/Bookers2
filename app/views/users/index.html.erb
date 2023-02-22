@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
-    <div class="col-lg-4" style="background-color: orange;">
-      <%= render partial:'list',locals:{user:current_user,book:book.new} %>
+    <div class="col-lg-4">
+      <%= render 'list', user: @user, book: @book%>
     </div>
   <div class="col-lg-8">
     <h1>Users</h1>

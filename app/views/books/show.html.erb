@@ -1,12 +1,26 @@
-<div>
-  <%= flash[:notice] %>
-  <p>Books detail</p>
-  <p>Image：<%= image_tag @book.user.get_profile_image(100,100) %></p>
-  <p>title：<%= @book.title %></p>
-  <p>opinion：<%= @book.body %></p>
-  <% if @book.user == current_user %>
-    <%= link_to "edit", edit_book_path(@book.id) %>
-    <%= link_to "delete", book_path(@book), method: :delete %>
-  <% end %>
+<p id="notice"><%= flash[:notice]%></p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+<%= render partial:'users/list', locals: {user: @user, book: @book} %>
+    </div>
+<div class="col-md-8 offset-md1">
+  <h2>Books</h2>
+<table class="table">
+  <tbody>
+    <tr>
+      <td><%= image_tag @Book.user.get_profile_image(100,100) %></td>
+      <td><%= @Book.title %></td>
+      <td><%= @Book.body %></td>
+      <td>
+        <% if @Book.user == current_user %>
+        <%= link_to "edit", edit_book_path(@Book.id) %>
+        <%= link_to "delete", book_path(@Book), method: :delete %>
+        <% end %>
+      </td>
+    </tr>
+  </tbody>
+</table>
 </div>
-
+</div>
+</div>
