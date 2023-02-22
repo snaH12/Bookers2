@@ -21,11 +21,11 @@
           <%= f.text_area :body %>
           </div>
         <div class="form-group">
-          <%= f.submit 'update' %>
+          <%= f.submit 'Update Book' %>
         </div>
       <% end %>
-      <div><%= link_to "show", book_path(@Book.id) %></div>
-      <div><%= link_to "back", books_path %></div>
+      <div><%= link_to "Show", book_path(@Book.id) %></div>
+      <div><%= link_to "Back", books_path %></div>
     </div>
   </div>
 </div>

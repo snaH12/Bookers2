@@ -5,17 +5,26 @@
 <%= render partial:'users/list', locals: {user: @user, book: @book} %>
     </div>
 <div class="col-md-8 offset-md1">
-  <h2>Books</h2>
+  <h2>Book detail</h2>
 <table class="table">
   <tbody>
     <tr>
-      <td><%= image_tag @Book.user.get_profile_image(100,100) %></td>
-      <td><%= @Book.title %></td>
+      <td>
+        <%= link_to user_path(@user) do %>
+        <%=  image_tag @Book.user.get_profile_image(100,100) %>
+        <br><%= @user.name %>
+        <% end %>
+        </td>
+      <td>
+        <%= link_to book_path(@Book) do %>
+        <%= @Book.title %>
+        <% end %>
+      </td>
       <td><%= @Book.body %></td>
       <td>
         <% if @Book.user == current_user %>
-        <%= link_to "edit", edit_book_path(@Book.id) %>
-        <%= link_to "delete", book_path(@Book), method: :delete %>
+        <%= link_to "Edit", edit_book_path(@Book) %>
+        <%= link_to "Destroy", book_path(@Book), method: :delete %>
         <% end %>
       </td>
     </tr>
